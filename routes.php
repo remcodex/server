@@ -9,7 +9,7 @@ Route::prefix('api')
     ->group(function () {
         Route::prefix('http')
             ->namespace('Http')
-            ->group(function (){
+            ->group(function () {
                 Route::post('request', 'RequestController@request');
             });
     });

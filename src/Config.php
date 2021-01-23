@@ -42,16 +42,6 @@ class Config
     }
 
     /**
-     * Set configuration
-     * @param string $key
-     * @param mixed $value
-     */
-    public static function set(string $key, $value): void
-    {
-        self::$configurations[$key] = $value;
-    }
-
-    /**
      * Get configurations/single item from config
      * @param string|null $key
      * @return array|string
@@ -63,5 +53,15 @@ class Config
         }
 
         return self::$configurations;
+    }
+
+    /**
+     * Set configuration
+     * @param string $key
+     * @param mixed $value
+     */
+    public static function set(string $key, $value): void
+    {
+        self::$configurations[$key] = $value;
     }
 }

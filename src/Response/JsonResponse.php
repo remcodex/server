@@ -11,7 +11,7 @@ final class JsonResponse extends BaseResponse
 {
     /**
      * Respond with success response
-     * @param array|object $data An array or object
+     * @param mixed $data An array or object
      * @return ResponseInterface
      */
     public static function success($data): ResponseInterface
@@ -28,6 +28,13 @@ final class JsonResponse extends BaseResponse
      */
     public static function create($body = []): ResponseInterface
     {
+        //Define responder
+        if (is_array($body)) {
+            $body['responder'] = 'rce.server';
+        } elseif (is_object($body)) {
+            $body->responder = 'rce.server';
+        }
+
         return (new JsonResponse())->withJson($body)
             ->withAddedHeader('Content-Type', 'application/json');
     }

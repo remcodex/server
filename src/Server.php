@@ -9,8 +9,8 @@ use Laminas\Stratigility\MiddlewarePipe;
 use QuickRoute\Route\Collector;
 use Remcodex\Server\Command\BaseCommand;
 use Remcodex\Server\Events\HttpEvent;
-use Remcodex\Server\Middlewares\PayloadDecoderBaseMiddleware;
 use Remcodex\Server\Middlewares\HttpRoutingMiddleware;
+use Remcodex\Server\Middlewares\PayloadDecoderBaseMiddleware;
 
 class Server
 {
@@ -29,9 +29,7 @@ class Server
 
     public static function create(): Server
     {
-        set_error_handler(function ($error){
-            var_dump($error);
-        });
+        set_exception_handler(new ErrorHandler());
         return new Server();
     }
 

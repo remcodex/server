@@ -42,8 +42,6 @@ class Matcher
             throw new Exception("Method {$namespacedController}::{$controllerMethod}() does not exists.");
         }
 
-        $response = InternalServerErrorResponse::create();
-
         try {
             $response = call_user_func(
                 [
@@ -55,6 +53,6 @@ class Matcher
             ErrorHandler::handle($exception);
         }
 
-        return $response;
+        return $response ?? InternalServerErrorResponse::create();
     }
 }

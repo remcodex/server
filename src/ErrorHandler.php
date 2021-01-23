@@ -16,5 +16,6 @@ class ErrorHandler
     public function __invoke(Throwable $exception): void
     {
         Event::emit(Event::APP_ERROR, $exception);
+        Helper::stdout($exception->__toString());
     }
 }

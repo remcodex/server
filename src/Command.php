@@ -21,7 +21,7 @@ class Command
 
     public static function load(string $filePath): array
     {
-        if (!file_exists($filePath)){
+        if (!file_exists($filePath)) {
             throw new \InvalidArgumentException("command definition \"{$filePath}\" does not exists.");
         }
 

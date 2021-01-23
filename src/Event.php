@@ -16,14 +16,13 @@ class Event
     private static EventEmitterInterface $eventEmitter;
 
     /**
-     * Initialise event listening object
-     * This method should be called once, i.e during app construction
+     * Register an event
+     * @param string $name
+     * @param callable $listener
      */
-    public static function init(): void
+    public static function register(string $name, callable $listener): void
     {
-        if (!isset(self::$eventEmitter)) {
-            self::$eventEmitter = new EventEmitter();
-        }
+        self::getEmitter()->on($name, $listener);
     }
 
     protected static function getEmitter(): EventEmitterInterface
@@ -33,13 +32,14 @@ class Event
     }
 
     /**
-     * Register an event
-     * @param string $name
-     * @param callable $listener
+     * Initialise event listening object
+     * This method should be called once, i.e during app construction
      */
-    public static function register(string $name, callable $listener): void
+    public static function init(): void
     {
-        self::getEmitter()->on($name, $listener);
+        if (!isset(self::$eventEmitter)) {
+            self::$eventEmitter = new EventEmitter();
+        }
     }
 
     /**

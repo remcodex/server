@@ -19,7 +19,7 @@ class Dispatcher
         $path = $request->getUri()->getPath();
         $method = $request->getMethod();
 
-        if (!$collector->isRegistered()){
+        if (!$collector->isRegistered()) {
             $collector->register();
         }
 

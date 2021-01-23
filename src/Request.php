@@ -25,6 +25,11 @@ class Request
         return true;
     }
 
+    public static function getPayload(): Payload
+    {
+        return ObjectAbstracter::getPayload();
+    }
+
     public static function getServerRequest(): ServerRequestInterface
     {
         return self::$request;

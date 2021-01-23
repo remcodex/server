@@ -24,7 +24,6 @@ abstract class BaseResponse extends Response implements ResponseInterface
     protected ResponseInterface $respondWith;
 
 
-
     public static function create(): ResponseInterface
     {
         return new static();

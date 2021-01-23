@@ -1,14 +1,25 @@
 # RCE Server
-Remote code execution server - this library uses [Guzwrap](https://github.com/Ahmard/guzwrap) to deconstruct sent request, perform it, and then send back request response to
+
+Remote code execution server - this library uses [Guzwrap](https://github.com/Ahmard/guzwrap) to deconstruct sent
+request, perform it, and then send back request response to
 [RCE Client](https://github.com/remcodex/client). <br/>
-This library act like slave, except that it only support [Guzwrap](https://github.com/Ahmard/guzwrap) request objects at the moment.
+This library act like slave, except that it only support [Guzwrap](https://github.com/Ahmard/guzwrap) request objects at
+the moment.
+
+## Notice 🔊
+
+This project is currently receiving massive updates, which may include code refactoring, namespace change, and many
+other stuffs that may cause the code to brake or not work entirely.<br/>
+**This project is not ready!!!**
 
 ## Installation
+
 ```bash
 composer require remcodex/server
 ```
 
 ## Usage
+
 ```php
 use Remcodex\Server\Command;
 use Remcodex\Server\ErrorHandler;
@@ -37,7 +48,9 @@ Server::create()
 ```
 
 ### Events
+
 - App Events
+
 ```php
 use Remcodex\Server\Events\AppEvent;
 
