@@ -12,7 +12,7 @@ class RequestController
 {
     public function request(): ResponseInterface
     {
-        $response = \Guzwrap\Request::useRequestData(Request::getPayload()->guzwrap())->exec();
+        $response = \Guzwrap\Request::useData(Request::getPayload()->guzwrap())->exec();
         return JsonResponse::success($response->getBody()->getContents());
     }
 }
