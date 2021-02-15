@@ -8,7 +8,7 @@ final class MethodNotAllowedResponse extends BaseResponse
 {
     public static function create(): ResponseInterface
     {
-        return (new static())->withResponse(
+        return (new MethodNotAllowedResponse())->withResponse(
             MultiPurposeResponse::create()
                 ->withStatus(405, 'method not allowed')
                 ->withJson([

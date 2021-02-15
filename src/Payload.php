@@ -23,8 +23,11 @@ class Payload implements JsonSerializable
      */
     public function __construct(ServerRequestInterface $serverRequest)
     {
-        $requestBody = $serverRequest->getBody()->getContents();
-        $requestArray = Json::decode($requestBody, Json::FORCE_ARRAY);
+        $requestArray = $serverRequest->getParsedBody();
+        if (empty($requestArray)){
+            $requestBody = $serverRequest->getBody()->getContents();
+            $requestArray = Json::decode($requestBody, Json::FORCE_ARRAY);
+        }
 
         //Command check
         if (!isset($requestArray['command'])) {

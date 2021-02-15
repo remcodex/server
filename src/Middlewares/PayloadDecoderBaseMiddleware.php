@@ -9,6 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Remcodex\Server\Exceptions\InvalidPayloadException;
+use Remcodex\Server\Helper;
 use Remcodex\Server\ObjectAbstracter;
 use Remcodex\Server\Payload;
 use Remcodex\Server\Response\JsonResponse;
